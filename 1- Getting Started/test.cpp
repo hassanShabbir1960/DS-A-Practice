@@ -115,9 +115,126 @@ bool isPowerOfTwo(int n) {
     return false;
 }
 
+void Notes_Conversion(int amount){
+    /// We need to calculate the number of currency notes to meet the total amount
+    /// We have option of these notes : [100,50,20,1]
+    /// Using a greedy approach
+    int notes[] ={100,50,20,1};
+    for (int i=0;i<4;i++){
+        int num = amount/notes[i];
+        if (num !=0){
+            cout <<num <<" of " <<notes[i]<<endl;
+            amount =amount - (num*notes[i]) ;
+        }
+    }
+}
+
+int factorial(int n){
+    // Function to calculate factorial
+    int fact=1;
+    for (int i=1;i<=n;i++){
+        fact = fact * i; 
+    }
+    return fact;
+}
+
+int nCr(int n, int r){
+    // Function to calculate total number of combinations
+    return factorial(n)/ (factorial(r) * factorial(n-r));
+}
+
+int Count_Setbits(int a , int b){
+    // Function to count set bits in binary numbers
+    int result= 0;
+    while(a!=0){
+        int bit = a%10;
+        if (bit==1){
+            result++;
+        }
+        a = a/10; 
+    }
+    while(b!=0){
+        int bit = b%10;
+        if (bit==1){
+            result++;
+        }
+        b = b/10; 
+    }
+    return result;
+}
+
+
+void Print_Array(int array[], int size){
+    // Function to print array
+    for( int i=0;i<size;i++){
+        cout<<array[i]<<" , "; 
+    }
+    cout<<endl;
+}
+void Reverse_Array(int array[], int size){
+    // Function to reverse an array
+    int start = 0;
+    int end = size-1;
+
+    while (start < end){
+
+        /// Swapping values
+        int temp = array[start];
+        array[start] = array[end];
+        array[end] = temp;
+        start++;
+        end--;
+    }
+
+}
+
+void Alternate_swap(int array[],int size){
+    // Function to swap alternate indexes of array
+    for (int i =0;i<size -1 ;){
+        int temp = array[i];
+        array[i] = array[i+1];
+        array[i+1] = temp;
+        i+=2;
+    }
+
+}
+
+int findUnique(int *arr, int size){
+    
+    // for (int i=0;i<size;i++){
+    //     int count = 0;
+    //     for (int j=0;j<size;j++){
+    //         if (arr[i]==arr[j]){
+    //             count++;
+    //         }
+        
+    //     }
+    //     if (count==1){
+    //         return arr[i];
+    //     }
+    // }
+    // return -1;
+
+
+    /// Using XOR aaproach
+    int ans=0;
+
+    for (int i=0;i<size;i++){
+        ans = ans^arr[i];
+        cout<<ans<<endl;
+    }
+
+    
+    return ans;
+
+
+}
 
 int main(){
     // print_fibseries(5);
-    cout<<isPowerOfTwo(0);
+    int array1[7] = {2, 3, 2, 6, 3 ,6 ,1};
+    cout<<findUnique(array1,7);
+
+    
     return 0;
 }
