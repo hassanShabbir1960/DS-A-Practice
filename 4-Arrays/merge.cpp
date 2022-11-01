@@ -64,7 +64,7 @@ void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
             nums1[lastPtr] = nums2[maxPtr2];
             maxPtr2--;
             lastPtr--;
-        }
+        }   
         else{
             nums1[lastPtr] = nums1[maxPtr1];
             maxPtr1--;
