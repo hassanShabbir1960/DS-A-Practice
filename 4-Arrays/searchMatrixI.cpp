@@ -30,7 +30,9 @@ bool searchMatrix(vector<vector<int>>& matrix, int target) {
 
 
 int main(){
-vector<vector<int>> arr = { {5,1,9,11},{2,4,8,10},{13,3,6,7},{15,14,12,16}};
+    
+
+vector<vector<int>> arr = { {{1,4,7,11,15},{2,5,8,12,19},{3,6,9,16,22},{10,13,14,17,24},{18,21,23,26,30}}};
 cout<<searchMatrix(arr,1);
 
 }
